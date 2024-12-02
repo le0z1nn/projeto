@@ -26,6 +26,10 @@ body {
     z-index: 10;
 }
 
+.top-bar h1 {
+    color: white;
+}
+
 .sidebar {
     background-color: #ffffff;
     color: #000000;
@@ -148,6 +152,10 @@ body {
     height: 35px;
     border-radius: 50%;
     border: 2px solid white;
+}
+
+::placeholder {
+    color:#ffffff;
 }
 
 @media (max-width: 768px) {
