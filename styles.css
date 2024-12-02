@@ -11,27 +11,40 @@ body {
     color: rgb(0, 0, 0);
     height: 100vh;
     display: flex;
+    flex-direction: column; /* Organiza barra superior e principal */
+}
+
+.top-bar {
+    width: 100%;
+    background-color: #1a1a3d;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
 .sidebar {
     background-color: #ffffff;
     color: #000000;
-    height: calc(100vh - 70px);
     width: 220px;
+    height: calc(100vh - 70px); /* Ajusta altura considerando a barra superior */
     position: fixed;
     top: 70px;
     left: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0 10px;
+    justify-content: flex-start;
+    padding: 20px 10px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-  }
+}
 
 .sidebar h1 {
-    color: rgb(0, 0, 0);
     font-size: 22px;
     margin-bottom: 30px;
+    color: rgb(0, 0, 0);
 }
 
 .sidebar a {
@@ -50,73 +63,19 @@ body {
     padding-left: 15px;
 }
 
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-}
-
-.top-bar {
-    width: 100%;
-    background-color: #1a1a3d;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    padding: 5px 10px;
-    width: 60%;
-}
-
-.search-container input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: rgb(70, 69, 69);
-    padding: 10px;
-    outline: none;
-    font-size: 16px;
-}
-
-.search-container svg {
-    margin-right: 10px;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-}
-
-.user-info img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
 #principal {
-    display: flex; /* Sidebar e lista lado a lado */
-    width: 100%;
-    height: calc(100vh - 80px); /* Altura ajustada com a barra superior */
+    margin-top: 70px; /* Espaço para a barra superior */
+    margin-left: 220px; /* Espaço para a sidebar fixa */
+    display: flex;
+    width: calc(100% - 220px); /* Ajusta largura considerando a sidebar */
+    height: calc(100vh - 70px); /* Altura total menos a barra superior */
     overflow: hidden; /* Evita rolagem lateral */
 }
 
 .email-list {
-    flex: 1; /* Ocupa o espaço restante */
+    flex: 1;
     padding: 20px;
-    overflow-y: auto; /* Rolagem vertical */
+    overflow-y: auto;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
     margin: 10px;
@@ -158,13 +117,37 @@ body {
     color: #bbb;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.search-container {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 5px 10px;
+    width: 60%;
+}
+
+.search-container input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: rgb(70, 69, 69);
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.user-info img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
 @media (max-width: 768px) {
@@ -174,5 +157,17 @@ body {
 
     .user-info span {
         display: inline;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+
+    #principal {
+        margin-left: 0;
+        width: 100%;
     }
 }
